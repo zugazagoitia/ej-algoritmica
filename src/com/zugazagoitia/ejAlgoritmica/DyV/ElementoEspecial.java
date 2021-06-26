@@ -1,4 +1,8 @@
-public class DivideAndConquer {
+package com.zugazagoitia.ejAlgoritmica.DyV;
+
+import com.zugazagoitia.ejAlgoritmica.Helpers;
+
+public class ElementoEspecial {
     public static int elementoEspecial(int[] vector){
         return elementoEspecial(vector,0,vector.length-1);
     }

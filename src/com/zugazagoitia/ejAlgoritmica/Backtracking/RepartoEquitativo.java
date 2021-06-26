@@ -1,3 +1,7 @@
+package com.zugazagoitia.ejAlgoritmica.Backtracking;
+
+import com.zugazagoitia.ejAlgoritmica.Booleano;
+
 public class RepartoEquitativo {
     public static boolean hayRepartoEquitativo(int[] bienes){
         int[] solucion = new int[bienes.length];

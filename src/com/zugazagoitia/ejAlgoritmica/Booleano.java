@@ -1,3 +1,5 @@
+package com.zugazagoitia.ejAlgoritmica;
+
 public class Booleano {
 
     private boolean valor;
