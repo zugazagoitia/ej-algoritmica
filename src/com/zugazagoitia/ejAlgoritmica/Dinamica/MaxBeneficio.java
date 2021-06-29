@@ -2,7 +2,8 @@ package com.zugazagoitia.ejAlgoritmica.Dinamica;
 
 import com.zugazagoitia.ejAlgoritmica.Helpers;
 
-public class MaxBeneficio {
+public class MaxBeneficio implements Runnable {
+
 	/*
 		Consideremos el siguiente juego: disponemos de un tablero representado por una matriz de
 		tamaño NxN. Inicialmente nos encontramos en la casilla de
@@ -15,9 +16,25 @@ public class MaxBeneficio {
 		camino que transita desde la casilla de coordenadas (0,0) a la de coordenadas (N-1, N-1).
 	 */
 
-	public static int maxBeneficio(int[][] tablero){
+	public static int maxBeneficio(int[][] tablero) {
 		//TODO
 
-		return null;
+		return -1;
+	}
+
+	@Override
+	public void run() {
+		int p = Integer.MIN_VALUE;
+		int[][] tablero = {
+				{0, 0, p, 0, 0, 0, 0},
+				{6, 2, p, p, p, p, 0},
+				{-9, 0, p, 0, 0, p, 0},
+				{3, 0, -3, 0, 0, p, 0},
+				{0, 2, 6, 0, 1, 0, 0},
+				{p, p, p, 0, 2, 0, 0},
+				{0, 0, p, 0, 0, 0, 0}
+		};
+		Helpers.print2DArray(tablero);
+		System.out.println(MaxBeneficio.maxBeneficio(tablero));
 	}
 }

@@ -2,15 +2,17 @@ package com.zugazagoitia.ejAlgoritmica.Backtracking;
 
 import com.zugazagoitia.ejAlgoritmica.Booleano;
 
-public class RepartoEquitativo {
-    public static boolean hayRepartoEquitativo(int[] bienes){
+import java.util.Arrays;
+
+public class RepartoEquitativo implements Runnable {
+    public static boolean hayRepartoEquitativo(int[] bienes) {
         int[] solucion = new int[bienes.length];
         Booleano exito = new Booleano(false);
         int suma = 0;
-        for (int i:bienes) suma+=i;
+        for (int i : bienes) suma += i;
 
-        if (suma%3 != 0) exito.setValor(false);
-        else hayRepartoEquitativo(bienes,suma,solucion,exito,0);
+        if (suma % 3 != 0) exito.setValor(false);
+        else hayRepartoEquitativo(bienes, suma, solucion, exito, 0);
 
         return exito.getValor();
     }
@@ -31,11 +33,11 @@ public class RepartoEquitativo {
         if(nivel==bienes.length) exito.setValor(esSolucion(bienes,suma,solucion));
         else {
             int c = 0;
-            while (!exito.getValor() && c<3){
-                solucion[nivel]=c;
+            while (!exito.getValor() && c < 3) {
+                solucion[nivel] = c;
                 nivel++;
-                hayRepartoEquitativo(bienes,suma,solucion,exito,nivel);
-                if(!exito.getValor()){
+                hayRepartoEquitativo(bienes, suma, solucion, exito, nivel);
+                if (!exito.getValor()) {
                     nivel--;
                 }
                 c++;
@@ -43,5 +45,11 @@ public class RepartoEquitativo {
 
         }
 
+    }
+
+    @Override
+    public void run() {
+        int[] vector = {10, 10, 10, 7, 3, 8, 2, 9, 1, 2, 2, 2};
+        System.out.println("Hay reparto equitativo en " + Arrays.toString(vector) + " ? : " + RepartoEquitativo.hayRepartoEquitativo(vector));
     }
 }

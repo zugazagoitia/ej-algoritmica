@@ -152,6 +152,15 @@ public class Helpers {
 	}
 
 	public static void clearScreen() {
-	    for (int i = 0; i < 50; ++i) System.out.println();
+		for (int i = 0; i < 50; ++i) System.out.println();
 	}
+
+	public static void pressEnterToContinue() {
+		System.out.println("\n Press Enter key to continue...");
+		try {
+			System.in.read();
+		} catch (Exception e) {
+		}
+	}
+
 }
